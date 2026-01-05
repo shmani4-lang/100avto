@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Автосервис 100АВТО | Ремонт и Диагностика</title>
+    <style>
+        /* --- Основные настройки --- */
+        :root {
+            --primary: #ff6b00; /* Оранжевый акцент */
+            --dark: #1a1a1a;    /* Темный фон */
+            --gray: #333333;    /* Светлее фон */
+            --text: #ffffff;    /* Текст */
+            --light-text: #cccccc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- Шапка (Header) --- */
+        header {
+            background-color: rgba(26, 26, 26, 0.95);
+            padding: 15px 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .logo span { color: var(--primary); }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a:hover { color: var(--primary); transition: 0.3s; }
+
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+            display: inline-block;
+        }
+        .btn:hover { background-color: #e65c00; transform: scale(1.05); }
+
+        /* --- Главный экран (Hero) --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1530046339160-ce3e41600f29?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--light-text);
+        }
+
+        /* --- Секции общие --- */
+        section {
+            padding: 80px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+        .section-title span { color: var(--primary); }
+
+        /* --- Услуги (Services) --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--gray);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            transition: 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .service-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .icon {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* --- Преимущества --- */
+        .features {
+            background-color: #222;
+        }
+        .features-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+        }
+        .feature-item {
+            text-align: center;
+            max-width: 300px;
+        }
+        .feature-num {
+            font-size: 50px;
+            font-weight: bold;
+            color: rgba(255, 107, 0, 0.2);
+            position: relative;
+            top: 20px;
+            z-index: 0;
+        }
+        .feature-text {
+            position: relative;
+            z-index: 1;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* --- Контакты и Карта --- */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        .contact-info, .map {
+            flex: 1;
+            min-width: 300px;
+        }
+        .contact-item {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        .map iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+            border-radius: 8px;
+        }
+
+        /* --- Футер --- */
+        footer {
+            background-color: black;
+            padding: 20px;
+            text-align: center;
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+
+        /* --- Адаптивность для мобильных --- */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            header { padding: 15px 20px; }
+            nav ul { display: none; } /* Скрываем меню на мобильном для простоты */
+            section { padding: 50px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">100<span>АВТО</span></div>
+        <nav>
+            <ul>
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#features">Преимущества</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+        </nav>
+        <a href="#contacts" class="btn">Позвонить</a>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Честный ремонт<br>вашего автомобиля</h1>
+            <p>Диагностика, запчасти, гарантия. Работаем без выходных.</p>
+            <a href="#contacts" class="btn">Записаться на диагностику</a>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2 class="section-title">Наши <span>Услуги</span></h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <span class="icon">⚙️</span>
+                <h3>Техническое обслуживание</h3>
+                <p>Замена масла, фильтров, свечей и технических жидкостей.</p>
+            </div>
+            <div class="service-card">
+                <span class="icon">🚗</span>
+                <h3>Ремонт ходовой</h3>
+                <p>Диагностика подвески, замена рычагов, амортизаторов и колодок.</p>
+            </div>
+            <div class="service-card">
+                <span class="icon">💻</span>
+                <h3>Компьютерная диагностика</h3>
+                <p>Считывание ошибок, адаптация блоков, поиск неисправностей.</p>
+            </div>
+            <div class="service-card">
+                <span class="icon">🔧</span>
+                <h3>Ремонт ДВС и КПП</h3>
+                <p>Капитальный ремонт двигателей и коробок передач любой сложности.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <h2 class="section-title">Почему <span>100авто</span>?</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-num">01</div>
+                <div class="feature-text">Честные цены<br>без накруток</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-num">02</div>
+                <div class="feature-text">Запчасти в наличии<br>и под заказ</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-num">03</div>
+                <div class="feature-text">Гарантия на работы<br>12 месяцев</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacts">
+        <h2 class="section-title">Контакты</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>📍 Адрес:</strong><br>
+                    г. Ваш Город, ул. Автомобильная, д. 100
+                </div>
+                <div class="contact-item">
+                    <strong>📞 Телефон:</strong><br>
+                    +7 (999) 000-00-00
+                </div>
+                <div class="contact-item">
+                    <strong>⏰ Режим работы:</strong><br>
+                    Пн-Вс: 09:00 - 21:00
+                </div>
+                <br>
+                <a href="tel:+79990000000" class="btn">Позвонить мастеру</a>
+            </div>
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3000!2d0!3d0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDQ0JzI0LjAiTiA3N8KwMDInMjQuMCJF!5e0!3m2!1sru!2sru!4v1600000000000!5m2!1sru!2sru" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Автосервис «100авто». Все права защищены.</p>
+    </footer>
+
+</body>
+</html>
