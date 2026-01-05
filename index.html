@@ -4,7 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Автосервис 100АВТО | Ремонт и Диагностика</title>
-    <style>
+    .promo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .promo-card {
+            background: var(--primary);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .promo-card:hover {
+            transform: translateY(-10px);
+            background: #e65c00;
+        }<style>
         .tg-button {
             position: fixed;
             bottom: 30px;
@@ -22,7 +39,7 @@
             justify-content: center;
             z-index: 1000;
             text-decoration: none;
-        }
+        }<style>
         /* --- Основные настройки --- */
         :root {
             --primary: #ff6b00; /* Оранжевый акцент */
